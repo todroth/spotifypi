@@ -1,5 +1,7 @@
 # spotifypi
 
+__Small personal project! You can do what you want, I'll guarantee nothing ;)__
+
 spotifypi is a small program that I wrote for my [Raspberry Pi](http://www.raspberrypi.org/). With this program, you can attach your Raspberry Pi to your stereo and make it stream music via [Spotify](http://www.spotify.com). But the best part is: you can access and control the streaming with a little web application in your local network.
 ![Web Application Screenshot](https://github.com/todroth/spotifypi/blob/master/ressources/web_app_screenshot.png?raw=true "Web Application Screenshot")
 
@@ -41,7 +43,7 @@ cd /opt/spotifypi
 make
 ```	
 * Run it
-`/spotifypi`
+`./spotifypi`
 You should see:
 __login
 successfully logged in__
