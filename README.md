@@ -1,4 +1,4 @@
-# spotifypi
+# ![spotifypi logo](https://github.com/todroth/spotifypi/blob/master/ressources/logo.png?raw=true "spotifypi logo") spotifypi
 
 __Small personal project! You can do what you want, I'll guarantee nothing ;)__
 
