@@ -7,14 +7,14 @@ There is one big requirement: You need a Spotify Premium Account to get an API k
 
 It is only a small project I did for myself, so the installation isn't very comfortable, but it kind of works like that:
 
-1. Install an operating system on your Raspberry Pi (I used the latest [Raspbian (Wheezy)](http://www.raspbian.org))
-2. Set an root password
+* Install an operating system on your Raspberry Pi (I used the latest [Raspbian (Wheezy)](http://www.raspbian.org))
+* Set an root password
 `sudo passwd root`
-3. Going root
+* Going root
 `su`
-4. Install clang compiler on your Raspberry Pi
+* Install clang compiler on your Raspberry Pi
 `apt-get install clang`
-5. Install the spotify API
+* Install the spotify API
 ```
 cd /opt
 wget https://developer.spotify.com/download/libspotify/libspotify-12.1.103-Linux-armv6-bcm2708hardfp-release.tar.gz
@@ -30,17 +30,17 @@ make install
 	
 Check, if it was installed correctly:
 `pkg-config --print-provides libspotify`
-6. Install libasound package
+* Install libasound package
 `apt-get install libasound2-dev`
-7. Enter your API key, your Spotify username and your password into src/keys_example.c and save it as keys.c.
-8. Copy the source files on your Raspberry Pi
+* Enter your API key, your Spotify username and your password into src/keys_example.c and save it as keys.c.
+* Copy the source files on your Raspberry Pi
 `scp -r ~/downloads/spotifypi root@IP_OF_YOUR_RASPBERRY:/opt`
-8. Build the application
+* Build the application
 ```
 cd /opt/spotifypi
 make
 ```	
-9. Run it
+* Run it
 `/spotifypi`
 You should see:
 __login
@@ -48,13 +48,13 @@ successfully logged in__
 
 Cancel it with CTRL+C
 
-10. Install apache2
+* Install apache2
 ```
 apt-get update
 apt-get install apache2 php5 libapache2-mod-php5
 ```
 	
-11. Change apache2 root directory	
+* Change apache2 root directory	
 In __/etc/apache2/sites-enabled__ change
 _DocumentRoot /var/www_
 to
@@ -69,7 +69,7 @@ GROUP www-data_
 	
 `reboot`
 	
-12. Setup auto login on bootup
+* Setup auto login on bootup
 In __/etc/inittab__ change
 `1:2345:respawn:/sbin/getty --noclear 38400 tty1`
 to
@@ -77,7 +77,7 @@ to
 and add after this line
 `1:2345:respawn:/bin/login -f root tty1 </dev/tty1 >/dev/tty1 2>&1`
 	
-13. Setup autostart spotifypi on bootup
+* Setup autostart spotifypi on bootup
 `cd ~`
 in __.bashrc__ add the following two lines
 ```
