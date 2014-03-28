@@ -1,7 +1,7 @@
 # spotifypi
 
 spotifypi is a small program that I wrote for my [Raspberry Pi](http://www.raspberrypi.org/). With this program, you can attach your Raspberry Pi to your stereo and make it stream music via [Spotify](http://www.spotify.com). But the best part is: you can access and control the streaming with a little web application in your local network.
-![Web Application Screenshot](https://github.com/todroth/spotifypi/blob/master/ressources/web_app_screenshot.png "Web Application Screenshot")
+![Web Application Screenshot](https://github.com/todroth/spotifypi/blob/master/ressources/web_app_screenshot.png?raw=true "Web Application Screenshot")
 
 There is one big requirement: You need a Spotify Premium Account to get an API key and to use the API.
 
