@@ -22,6 +22,7 @@ It will recognize the following commands:
   * `previous` Plays the previous track of the current list
   * `random on` and `random off` Turns random-mode on or off
   * `search query` will search Spotify for the query
+  
  The outputs of will be written in various files; the results of a search will be written in *tmp/results*, and so on.
  
  On the installed apache2 server is PHP installed, so these file-operations (writing to *tmp/communication* and reading from the other files in *tmp/*) are done in PHP, and will be triggered with ajax-requests, which will be triggered by user inputs in the web application.
