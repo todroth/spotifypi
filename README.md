@@ -9,13 +9,13 @@ It is only a small project I did for myself, so the installation isn't very comf
 
 1. Install an operating system on your Raspberry Pi (I used the latest [Raspbian (Wheezy)](http://www.raspbian.org))
 2. Set an root password
-`sudo passwd root`	
+```sudo passwd root```
 3. Going root
-`su`
+```su```
 4. Install clang compiler on your Raspberry Pi
-`apt-get install clang`
+```apt-get install clang```
 5. Install the spotify API
-`cd /opt
+```cd /opt
 wget https://developer.spotify.com/download/libspotify/libspotify-12.1.103-Linux-armv6-bcm2708hardfp-release.tar.gz
 tar -xf libspotify-12.1.103-Linux-armv6-bcm2708hardfp-release.tar.gz
 mv libspotify-12.1.103-Linux-armv6-bcm2708hardfp-release libspotify
@@ -24,32 +24,32 @@ mkdir 12.1.103
 mv * 12.1.103
 ln -s 12.1.103/ current
 cd current
-make install`
+make install```
 	
 Check, if it was installed correctly:
-`pkg-config --print-provides libspotify`
+```pkg-config --print-provides libspotify```
 6. Install libasound package
-`apt-get install libasound2-dev`
+```apt-get install libasound2-dev```
 7. Enter your API key, your Spotify username and your password into src/keys_example.c and save it as keys.c.
 8. Copy the source files on your Raspberry Pi
-`scp -r ~/downloads/spotifypi root@IP_OF_YOUR_RASPBERRY:/opt`
+```scp -r ~/downloads/spotifypi root@IP_OF_YOUR_RASPBERRY:/opt```
 8. Build the application
-`cd /opt/spotifypi
-make`	
+```cd /opt/spotifypi
+make```	
 9. Run it
-`./spotifypi`
+```/spotifypi```
 You should see:
-*login
-successfully logged in*
+__login
+successfully logged in__
 
 Cancel it with CTRL+C
 
 10. Install apache2
-`apt-get update
-apt-get install apache2 php5 libapache2-mod-php5`
+```apt-get update
+apt-get install apache2 php5 libapache2-mod-php5```
 	
 11. Change apache2 root directory	
-In */etc/apache2/sites-enabled* change
+In __/etc/apache2/sites-enabled__ change
 _DocumentRoot /var/www_
 to
 _DocumentRoot /opt/spotifypi_
@@ -61,20 +61,18 @@ to
 _User www-data
 GROUP www-data_
 	
-`reboot`
+```reboot```
 	
 12. Setup auto login on bootup
-In */etc/inittab* change
-_1:2345:respawn:/sbin/getty --noclear 38400 tty1_
+In __/etc/inittab__ change
+`1:2345:respawn:/sbin/getty --noclear 38400 tty1`
 to
-_#1:2345:respawn:/sbin/getty --noclear 38400 tty1_
+`#1:2345:respawn:/sbin/getty --noclear 38400 tty1`
 and add after this line
-_1:2345:respawn:/bin/login -f root tty1 </dev/tty1 >/dev/tty1 2>&1_
+`1:2345:respawn:/bin/login -f root tty1 </dev/tty1 >/dev/tty1 2>&1`
 	
 13. Setup autostart spotifypi on bootup
-`cd ~`
-in *.bashrc* add the following two lines
-_cd /opt/spotifypi
-./spotifypi_
-
-`reboot`
+```cd ~```
+in __.bashrc__ add the following two lines
+```_cd /opt/spotifypi
+./spotifypi_```
