@@ -1,0 +1,46 @@
+.navbar-text {
+	color: white;
+}
+
+.logo {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	float: left;
+	background-image: url('../ressources/logo.png');
+	margin: -10px 7px 0 -10px;
+}
+
+.didumean {
+	margin-top: 10px;
+}
+
+html, body {
+	height : 100%;
+}
+
+.main-well {
+	min-height : 100%;
+	margin : 0;
+	padding : 0;
+}
+
+.panel-margin {
+	margin-left : 1%;
+	margin-right : 1%;
+}
+
+.panel-notopmargin {
+	margin-top: 0 !important;
+}
+
+.panel-symbol {
+	display : inline-block;
+	width : 25px;
+	height : 15px;
+}
+
+.spacer {
+	display : inline-block;
+	width : 25px;
+}
