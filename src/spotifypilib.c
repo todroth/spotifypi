@@ -34,7 +34,6 @@ int is_paused = 1;
 char *playlist_file;
 int current_playing_playlist = -1;
 enum play_mode current_mode;
-int start_from_zero = 0;
 int mode_random = 0;
 
 int logged_in;
@@ -200,18 +199,13 @@ void continue_track() {
 void next_track() {
 	switch (current_mode) {
 		case RESULTS:
-			if (start_from_zero) {
-				play_track(0);
+			if (mode_random == 1) {
+				int random = rand() % get_num_tracks();
+				play_track(random);
+				printf("play random: %d\n", random);
 			} else {
-				if (mode_random == 1) {
-					int random = rand() % get_num_tracks();
-					play_track(random);
-					printf("play random: %d\n", random);
-				} else {
-					play_track(current_playing_track_index + 1);
-				}
+				play_track(current_playing_track_index + 1);
 			}
-			start_from_zero = 0;
 			break;
 		case PLAYLIST:
 			if (mode_random == 1) {
@@ -299,7 +293,6 @@ static void on_search_complete(sp_search *search, void *userdata) {
 	}
 	
 	last_search = search;
-	start_from_zero = 1;
 	search_complete = 1;
 }
 
@@ -351,18 +344,13 @@ static void on_end_of_track(sp_session *session) {
 	audio_fifo_flush(&g_audiofifo);
 	switch (current_mode) {
 		case RESULTS:
-			if (start_from_zero) {
-				play_track(0);
+			if (mode_random == 1) {
+				int random = rand() % get_num_tracks();
+				play_track(random);
+				printf("play random: %d\n", random);
 			} else {
-				if (mode_random == 1) {
-					int random = rand() % get_num_tracks();
-					play_track(random);
-					printf("play random: %d\n", random);
-				} else {
-					play_track(current_playing_track_index + 1);
+				play_track(current_playing_track_index + 1);
 				}
-			}
-			start_from_zero = 0;
 			break;
 		case PLAYLIST:
 			if (mode_random == 1) {
